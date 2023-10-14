@@ -19,17 +19,17 @@ export function selectContent(state) {
 }
 export function GET() {
   return async (dispatch, getState) => {
-    const response = await fetch(
-      "https://api.jsonbin.io/v3/b/6527f20212a5d376598acd8d?meta=false",
-      {
-        headers: {
-          "X-Master-Key":
-            "$2b$10$6cLxbS0BlljsHgkQ.sn7hubk3uqNerVKY6Lgek0/2vyFQF0DUKqNu",
-        },
-      }
-    );
-    const data = await response.json();
-      dispatch(content.actions.read(data));
+    // const response = await fetch(
+    //   "https://api.jsonbin.io/v3/b/6527f20212a5d376598acd8d?meta=false",
+    //   {
+    //     headers: {
+    //       "X-Master-Key":
+    //         "$2b$10$6cLxbS0BlljsHgkQ.sn7hubk3uqNerVKY6Lgek0/2vyFQF0DUKqNu",
+    //     },
+    //   }
+    // );
+    // const data = await response.json();
+    dispatch(content.actions.read(data));
   };
 }
 export const { read, bookmark } = content.actions;
