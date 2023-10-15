@@ -26,7 +26,7 @@ export function GET() {
     //       "X-Master-Key":
     //         "$2b$10$6cLxbS0BlljsHgkQ.sn7hubk3uqNerVKY6Lgek0/2vyFQF0DUKqNu",
     //     },
-    //   }
+    //   },
     // );
     // const data = await response.json();
     dispatch(content.actions.read(data));

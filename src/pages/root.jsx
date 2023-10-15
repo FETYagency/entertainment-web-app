@@ -1,7 +1,14 @@
 import Header from "../components/header";
 import { Outlet, useLoaderData } from "react-router-dom";
 import Search from "../components/searchBar";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { GET } from "../services/features/content";
 export default function Root() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(GET());
+  }, []);
   return (
     <main className=" min-h-screen bg-[#10141E] md:pt-[24px] xl:pl-[164px] xl:pr-[36px]">
       <Header />
