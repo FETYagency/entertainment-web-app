@@ -1,7 +1,7 @@
 import { Form, Link, redirect } from "react-router-dom";
 import logo from "../assets/logo.svg";
 export function action() {
-  return redirect("/Home");
+  return redirect("/Home/");
 }
 export default function Login() {
   return (
