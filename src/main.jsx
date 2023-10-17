@@ -12,6 +12,8 @@ import Movies from "./pages/movies.jsx";
 import BookMarkes from "./pages/bookmarked.jsx";
 import Login, { action as loginAction } from "./pages/login.jsx";
 import Signup, { action as signUpAction } from "./pages/signup.jsx";
+import { worker } from "./mocks/browser.js";
+import { data } from "autoprefixer";
 const ROUTER = createBrowserRouter([
   {
     path: "/",
@@ -43,10 +45,18 @@ const ROUTER = createBrowserRouter([
     ],
   },
 ]);
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={ROUTER} />
-    </Provider>
-  </React.StrictMode>,
-);
+async function start() {
+  // Start our mock API server
+  await worker.start({ onUnhandledRequest: "bypass" });
+
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <RouterProvider router={ROUTER} />
+      </Provider>
+    </React.StrictMode>,
+  );
+}
+
+start();
+

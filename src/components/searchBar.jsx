@@ -1,7 +1,10 @@
 import loop from "../assets/icon-search.svg";
 import { useDispatch } from "react-redux";
 import { search } from "../services/features/filter";
-export default function Search({ handler, placeholder="Search for movies or TV series" }) {
+export default function Search({
+  handler,
+  placeholder = "Search for movies or TV series",
+}) {
   const query = useDispatch();
   return (
     <div className="relative flex max-w-[1240px] items-center gap-[16px] xl:pb-[15px] xl:pt-[33px]">

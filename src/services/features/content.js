@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import data from "../../data.json";
-
 export const content = createSlice({
   name: "content",
   initialState: null,
@@ -19,17 +17,9 @@ export function selectContent(state) {
 }
 export function GET() {
   return async (dispatch, getState) => {
-    // const response = await fetch(
-    //   "https://api.jsonbin.io/v3/b/6527f20212a5d376598acd8d?meta=false",
-    //   {
-    //     headers: {
-    //       "X-Master-Key":
-    //         "$2b$10$6cLxbS0BlljsHgkQ.sn7hubk3uqNerVKY6Lgek0/2vyFQF0DUKqNu",
-    //     },
-    //   },
-    // );
-    // const data = await response.json();
-    dispatch(content.actions.read(data));
+    const response = await fetch("/read", { method: "GET" });
+    const resp = await response.json();
+    dispatch(content.actions.read(resp));
   };
 }
 export const { read, bookmark } = content.actions;
