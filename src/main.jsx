@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import store from "./services/store/store.js";
 import { Provider } from "react-redux";
-import { GET } from "./services/features/content.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./pages/root.jsx";
 import Home from "./pages/home.jsx";
@@ -13,7 +12,6 @@ import BookMarkes from "./pages/bookmarked.jsx";
 import Login, { action as loginAction } from "./pages/login.jsx";
 import Signup, { action as signUpAction } from "./pages/signup.jsx";
 import { worker } from "./mocks/browser.js";
-import { data } from "autoprefixer";
 const ROUTER = createBrowserRouter([
   {
     path: "/",
@@ -59,4 +57,3 @@ async function start() {
 }
 
 start();
-
